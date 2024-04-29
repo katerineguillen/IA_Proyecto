@@ -10,10 +10,19 @@ import javax.swing.JDesktopPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FormularioPrincipal extends JFrame {
 
 	private JPanel contentPane;
+	IF_Ayuda_Tienda if_ayuda_tienda = new IF_Ayuda_Tienda();
+	IF_Mantenimiento_consultar if_mantenimiento_consultar = new IF_Mantenimiento_consultar();
+	
+	
+	
+	
+	
 
 	/**
 	 * Launch the application.
@@ -51,6 +60,11 @@ public class FormularioPrincipal extends JFrame {
 		menuBar.add(mnNewMenu_1);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Concultar cocina");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if_mantenimiento_consultar.setVisible(true);
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Modificar cocina");
@@ -95,5 +109,7 @@ public class FormularioPrincipal extends JFrame {
 		
 		JDesktopPane escritorio = new JDesktopPane();
 		contentPane.add(escritorio, BorderLayout.CENTER);
+		escritorio.add(if_ayuda_tienda);
+		escritorio.add(if_mantenimiento_consultar);
 	}
 }
